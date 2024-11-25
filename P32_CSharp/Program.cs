@@ -5,6 +5,12 @@ namespace P32_CSharp
 {
     internal class Program
     {
+        public enum Planet
+        {
+            Mars, Venera = 9, Mercury
+        }
+
+
         static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -13,6 +19,159 @@ namespace P32_CSharp
             Console.InputEncoding = Encoding.UTF8;
             Console.Title = "P32 C# - Слава Україні!";
             Console.Clear();
+
+
+
+            /// 25.11.2024 ////////
+            /// 
+
+            string st = Console.ReadLine();
+
+            //string[] words = st.Split(' ');
+            //for (int i = 0; i < words.Length; i++)
+            //{
+            //    words[i] = new string(words[i].Reverse().ToArray());
+            //}
+            //string st1 = String.Join(" ", words);
+            //Console.WriteLine(st1);
+
+
+            string[] words = st.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            Console.WriteLine(words.Length);
+
+
+            Planet planet = Planet.Mars;
+
+            switch (planet)
+            {
+                case Planet.Mars:
+                    break;
+                case Planet.Venera:
+                    break;
+                case Planet.Mercury:
+                    break;
+                default:
+                    break;
+            }
+            Console.WriteLine(planet);
+            Enum.GetName(typeof(Planet), planet);
+            Console.WriteLine((int)planet);
+
+            DayOfWeek dd = DateTime.Now.DayOfWeek;
+            Console.WriteLine(dd);
+
+            
+
+            //int[] arr = new int[] { 4, 2, 13, 45, 3, 7 };
+            //String s = "mama";
+            //Console.WriteLine(s.PadRight(20, '.'));
+            //Console.WriteLine(s.PadLeft(20, '.'));
+            //Console.WriteLine(String.Join(" ", arr));
+            //s += "papa";
+
+
+            //StringBuilder sb = new StringBuilder("adsasdasd");
+            //sb.Insert(sb.Length - 1, 1000);
+            //Console.WriteLine(sb.Capacity);
+
+            //string s1 = sb.ToString();
+            //Console.WriteLine(s1);
+
+
+
+
+            //int M = Convert.ToInt32(Console.ReadLine());
+            //int N = Convert.ToInt32(Console.ReadLine());
+            //int[] arr1 = new int[M];
+            //int[] arr2 = new int[N];
+            //int[] arr3 = new int[0];
+
+            //Random rnd = new Random();
+            //for (int i = 0; i < M; i++)
+            //{
+            //    arr1[i] = rnd.Next(0, 10);
+            //    Console.Write(arr1[i] + " ");
+            //}
+            //Console.WriteLine();
+
+            //for (int i = 0;i < N; i++)
+            //{
+            //    arr2[i] = rnd.Next(0, 10);
+            //    Console.Write(arr2[i] + " ");
+            //}
+            //Console.WriteLine();
+
+            //for (int i = 0; i < arr1.Length; i++)
+            //{
+            //    if(Array.IndexOf(arr2, arr1[i]) != -1 && Array.IndexOf(arr3, arr1[i]) == -1)
+            //    {
+            //        int[] temp = new int[arr3.Length + 1];
+            //        arr3.CopyTo(temp, 0);
+            //        temp[arr3.Length] = arr1[i];
+            //        arr3 = temp;
+            //    }
+            //}
+
+            //for (int i = 0; i < arr3.Length; i++)
+            //{
+            //    Console.Write(arr3[i] + " ");
+            //}
+            //Console.WriteLine();
+
+
+
+            //int[] arr = new int[] { 4,2,13,45,3,7};
+            //int[] arr1 = { 1, 2, 3 };
+            //int[] arr3;
+            //arr3 = new int[5];
+            //Array.Sort(arr);
+            //Console.WriteLine(Array.BinarySearch(arr, 3));
+            //for (int i = 0; i < arr.Length; i++)
+            //{
+            //    arr[i] *= 3;
+            //    Console.Write(arr[i] + " ");
+            //}
+            //Console.WriteLine();
+
+            //foreach (int elem in arr)
+            //{
+            //    //i *= 3;
+            //    Console.Write(elem + " ");
+            //}
+            //Console.WriteLine();
+
+            //Console.WriteLine(arr.Rank);
+
+            //int[,] arr5 = new int[2, 3] { { 1, 2, 3 }, { 45, 6, 3 } };
+            //Console.WriteLine(arr5.Rank);
+
+            //for (int i = 0; i < arr5.GetLength(0); i++)
+            //{
+            //    for (int j = 0; j < arr5.GetLength(1); j++)
+            //    {
+            //        Console.Write(arr5[i, j] + " ");
+            //    }
+            //    Console.WriteLine();
+            //}
+
+
+
+            //int [][] arr7 = new int[3][];
+            //arr7[0] = new int[5] { 12,3,4,5,6};
+            //arr7[1] = new int[2] { 23,4};
+            //arr7[2] = arr;
+
+            //for (int i = 0; i < arr7.GetLength(0); i++)
+            //{
+            //    for (int j = 0; j < arr7[i].Length; j++)
+            //    {
+            //        Console.Write(arr7[i][j] + " ");
+            //    }
+            //    Console.WriteLine();
+            //}
+
+            //Console.WriteLine(arr.Sum());
+            //Console.WriteLine(arr.Average());
 
             //int a = Convert.ToInt32(Console.ReadLine());
             //int n = 0;
@@ -24,11 +183,11 @@ namespace P32_CSharp
             //Console.WriteLine(n);
 
 
-            Random random = new Random();
-            for (int i = 0; i < 10; i++)
-            {
-                Console.WriteLine(random.NextDouble());
-            }
+            //Random random = new Random();
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    Console.WriteLine(random.NextDouble());
+            //}
 
 
             //DateTime d = DateTime.Now;
@@ -38,7 +197,7 @@ namespace P32_CSharp
             //Console.WriteLine(d.ToLongTimeString());  
             //Console.WriteLine(d.ToLongDateString());  
             //Console.WriteLine(d.ToUniversalTime()); 
-            
+
             //DateTime dd = Convert.ToDateTime(Console.ReadLine());
             //Console.WriteLine(dd);
             //Console.WriteLine(dd.ToString("yyyy-mm-dd"));
