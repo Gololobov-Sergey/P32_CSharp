@@ -10,6 +10,36 @@ namespace P32_CSharp
             Mars, Venera = 9, Mercury
         }
 
+        static public void Func1(ref int i, ref int[] arr, out int a)
+        {
+            //Console.WriteLine(i);
+
+            foreach( var item in arr ) 
+                Console.WriteLine(item);
+
+            //i++;
+
+            arr = new int[] { 4, 5, 6 };
+
+
+           // Console.WriteLine(i);
+
+            foreach (var item in arr)
+                Console.WriteLine(item);
+
+            a = 999;
+        }
+
+
+        static public int Sum(int a, params int[] arr)
+        {
+            int s = 0;
+            foreach (int item in arr)
+            {
+                s += item;
+            }
+            return s;
+        }
 
         static void Main(string[] args)
         {
@@ -19,6 +49,57 @@ namespace P32_CSharp
             Console.InputEncoding = Encoding.UTF8;
             Console.Title = "P32 C# - Слава Україні!";
             Console.Clear();
+
+            /// 02.12.2024 ////////
+            /// 
+
+            //City city = new ("Mykolaiv", "Ukraine", 30000000, "+380512", new string[] {"Ingulsky", "Tcentralny"});
+            //city.SetNewDistrict("Ingulsky", "qwewerwe");
+
+            //city.Info();
+
+            Console.WriteLine(Sum(1,2,3,4));
+
+
+            //int i = 9;
+            //int[] arr = new int[] { 1,2,3 };
+
+            //Func1(ref i, ref arr, out int a);
+
+            //Console.WriteLine(i);
+
+            //foreach (var item in arr)
+            //    Console.WriteLine(item);
+
+            //Console.WriteLine(a);
+
+            //int b = Int32.Parse("2");
+
+            
+            //Int32.TryParse("44", out int c);
+            //Console.WriteLine(c);
+
+            //Point p = new Point();
+            //p.Print();
+
+
+            //Student student1;
+            //Student student = new Student();
+
+            ////student1 = student;
+
+            ////student1.id = 555;
+
+            //student.Print();
+
+            //Student student2 = new Student(99);
+            //student2.Print();
+
+            ////student2.count2 = 44;
+            //Console.WriteLine(student2.count2);
+
+            ////Student.name = "Oleg";
+            //Console.WriteLine(Student.GetName());
 
 
 
