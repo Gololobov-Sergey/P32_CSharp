@@ -8,38 +8,48 @@ namespace P32_CSharp
 {
     public class Student
     {
-        public int id;
-        static string name;
-        public const int count = 999;
-        public readonly int count2 = 0;
+        //public int id;
+        //static string name;
+        //public const int count = 999;
+        //public readonly int count2 = 0;
 
-        public Student()
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+
+        public int Count2 { get; } = 0;
+
+
+        private int myVar;
+
+        public int MyProperty
         {
-
+            get { return myVar; }
+            set { myVar = value; }
         }
 
-        public Student(int count2)
-        {
-            this.count2 = count2;
-        }
+        //public Student()
+        //{
 
-        static Student() 
-        {
-            name = "Ivan";
-        }
+        //}
+
+        //public Student(int count2)
+        //{
+        //    //this.count2 = count2;
+        //}
+
+        //static Student() 
+        //{
+        //    //name = "Ivan";
+        //}
 
 
 
         public void Print()
         {
             
-            System.Console.WriteLine($"ID : {id}, Name : {name}, Count2 : {count2}");
+            System.Console.WriteLine($"ID : {Id}, Name : {Name}, Count2 : {Count2}");
         }
 
-        public static string GetName()
-        {
-            //id = 888;
-            return name;
-        }
     }
 }

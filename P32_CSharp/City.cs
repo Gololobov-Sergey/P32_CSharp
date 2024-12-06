@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace P32_CSharp
 {
-    public class City
+    public partial class City
     {
         string name;
         string country;
@@ -14,6 +14,37 @@ namespace P32_CSharp
         readonly string phoneCode;
         readonly string[] districts;
 
+
+        private string? myVar;
+
+        public string MyProperty
+        {
+            get 
+            {
+                if (myVar == null)
+                    return "No name";
+                return myVar; 
+            }
+            set 
+            {
+                if (value == null)
+                {
+                    return;
+                }
+                myVar = value; 
+            }
+        }
+
+        private int age;
+
+        public int Age
+        {
+            get { return age; }
+            set { age = value; }
+        }
+
+
+        public int MyProperty1 { get; set; }
 
         public City(string name, string country, int population, string phoneCode, string[] districts)
         {
@@ -46,6 +77,16 @@ namespace P32_CSharp
                     districts[i] = newDistr;
                 }
             }
+        }
+
+        public void SetName(string name)
+        {
+            this.name = name;
+        }
+
+        public string GetName()
+        {
+            return this.name;
         }
     }
 }

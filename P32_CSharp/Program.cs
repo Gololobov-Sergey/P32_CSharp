@@ -50,15 +50,58 @@ namespace P32_CSharp
             Console.Title = "P32 C# - Слава Україні!";
             Console.Clear();
 
+
+            Passport passport = new Passport() 
+            {
+                Surname = "Гололобов",
+                Name ="Сергій",
+                FatherName = "Анатолійович",
+                BirthDay = new DateOnly(2000, 5, 20),
+                Number = 121212,
+                Series = "EP"
+            };
+
+            passport.Info();
+            Console.WriteLine();
+
+            ForeignPassport foreign = new ForeignPassport()
+            {
+                Surname = "Gololobov",
+                Name = "Serhiy",
+                BirthDay = new DateOnly(2000, 5, 20),
+                Number = 454545,
+                Series = "XX"
+            };
+
+            foreign.AddVisa(new Visa() { Country = "USA", DateStart = new DateOnly(2024, 12, 5), Period = new TimeSpan(90, 0, 0, 0) });
+            foreign.AddVisa(new Visa() { Country = "Germany", DateStart = new DateOnly(2024, 5, 15), Period = new TimeSpan(180, 0, 0, 0) });
+
+            foreign.Info();
+
+
+
+            //Employee employee = new Employee(5, "Ivan", 16, 5000);
+            //employee.Info();
+
+
+
+            //Student student = new Student() { Id = 3, Name = "Ivan" };
+
+
+
             /// 02.12.2024 ////////
             /// 
 
             //City city = new ("Mykolaiv", "Ukraine", 30000000, "+380512", new string[] {"Ingulsky", "Tcentralny"});
+            //city.MyProperty = 10;
+            //int ddd = city.MyProperty;
+            //city.Age = 234;
+
             //city.SetNewDistrict("Ingulsky", "qwewerwe");
 
             //city.Info();
 
-            Console.WriteLine(Sum(1,2,3,4));
+            //Console.WriteLine(Sum(1,2,3,4));
 
 
             //int i = 9;
@@ -75,7 +118,7 @@ namespace P32_CSharp
 
             //int b = Int32.Parse("2");
 
-            
+
             //Int32.TryParse("44", out int c);
             //Console.WriteLine(c);
 
@@ -117,29 +160,29 @@ namespace P32_CSharp
             //Console.WriteLine(st1);
 
 
-            string[] words = st.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-            Console.WriteLine(words.Length);
+            //string[] words = st.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            //Console.WriteLine(words.Length);
 
 
-            Planet planet = Planet.Mars;
+            //Planet planet = Planet.Mars;
 
-            switch (planet)
-            {
-                case Planet.Mars:
-                    break;
-                case Planet.Venera:
-                    break;
-                case Planet.Mercury:
-                    break;
-                default:
-                    break;
-            }
-            Console.WriteLine(planet);
-            Enum.GetName(typeof(Planet), planet);
-            Console.WriteLine((int)planet);
+            //switch (planet)
+            //{
+            //    case Planet.Mars:
+            //        break;
+            //    case Planet.Venera:
+            //        break;
+            //    case Planet.Mercury:
+            //        break;
+            //    default:
+            //        break;
+            //}
+            //Console.WriteLine(planet);
+            //Enum.GetName(typeof(Planet), planet);
+            //Console.WriteLine((int)planet);
 
-            DayOfWeek dd = DateTime.Now.DayOfWeek;
-            Console.WriteLine(dd);
+            //DayOfWeek dd = DateTime.Now.DayOfWeek;
+            //Console.WriteLine(dd);
 
             
 
