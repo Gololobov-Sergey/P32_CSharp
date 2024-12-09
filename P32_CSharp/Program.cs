@@ -1,4 +1,5 @@
 ﻿using System.Collections.Concurrent;
+using System.Drawing;
 using System.Text;
 
 namespace P32_CSharp
@@ -14,7 +15,7 @@ namespace P32_CSharp
         {
             //Console.WriteLine(i);
 
-            foreach( var item in arr ) 
+            foreach (var item in arr)
                 Console.WriteLine(item);
 
             //i++;
@@ -22,7 +23,7 @@ namespace P32_CSharp
             arr = new int[] { 4, 5, 6 };
 
 
-           // Console.WriteLine(i);
+            // Console.WriteLine(i);
 
             foreach (var item in arr)
                 Console.WriteLine(item);
@@ -50,33 +51,97 @@ namespace P32_CSharp
             Console.Title = "P32 C# - Слава Україні!";
             Console.Clear();
 
+            /// 09.12.2024 ////////
+            ///
 
-            Passport passport = new Passport() 
-            {
-                Surname = "Гололобов",
-                Name ="Сергій",
-                FatherName = "Анатолійович",
-                BirthDay = new DateOnly(2000, 5, 20),
-                Number = 121212,
-                Series = "EP"
-            };
 
-            passport.Info();
-            Console.WriteLine();
+            //City city = new("Mykolaiv", "Ukraine", 30000000, "+380512", new string[] { "Ingulsky", "Tcentralny" });
+            //city.Info();
+            //city += 100000;
+            //city.Info();
 
-            ForeignPassport foreign = new ForeignPassport()
-            {
-                Surname = "Gololobov",
-                Name = "Serhiy",
-                BirthDay = new DateOnly(2000, 5, 20),
-                Number = 454545,
-                Series = "XX"
-            };
+            Apple a1 = new Apple() { Color = Color.Red, Diametr = 10 };
+            Apple a2 = new Apple() { Color = Color.Green, Diametr = 15 };
+            Kompot k = a1 + a2;
+            k += "water  - 1 l";
+            k += "sugar  - 200 gr";
+            k += "korica - 20 gr";
+            k.Info();
+            k += new Apple() { Color = Color.Yellow, Diametr = 5 };
+            k.Info();
 
-            foreign.AddVisa(new Visa() { Country = "USA", DateStart = new DateOnly(2024, 12, 5), Period = new TimeSpan(90, 0, 0, 0) });
-            foreign.AddVisa(new Visa() { Country = "Germany", DateStart = new DateOnly(2024, 5, 15), Period = new TimeSpan(180, 0, 0, 0) });
 
-            foreign.Info();
+
+
+            // (=) + - * / % += ....
+
+            // && || -> & |
+
+            //Point point = new Point() { X = 8, Y = 4 };
+            //Point point1 = -point;
+            //point1.Print();
+            //point++;
+            //++point;
+            //point.Print();
+
+            //Point point2 = point + point1;
+            //point2.Print();
+
+            //point += point2;
+
+            //point = point2 + 10;
+            //point += 10;
+
+            //point = 10 + point;
+
+            //Point point3 = point;
+            //point3.X = 888;
+
+            //point.Print();
+
+            //if (point2 == point)
+            //{
+            //    Console.WriteLine("Yes");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("No");
+            //}
+
+            //float a = point;
+
+            //if(point > point2)
+            //{
+
+            //}
+
+
+            //Passport passport = new Passport() 
+            //{
+            //    Surname = "Гололобов",
+            //    Name ="Сергій",
+            //    FatherName = "Анатолійович",
+            //    BirthDay = new DateOnly(2000, 5, 20),
+            //    Number = 121212,
+            //    Series = "EP"
+            //};
+
+            //passport.Info();
+            //Console.WriteLine();
+
+            //ForeignPassport foreign = new ForeignPassport()
+            //{
+            //    Surname = "Gololobov",
+            //    Name = "Serhiy",
+            //    BirthDay = new DateOnly(2000, 5, 20),
+            //    Number = 454545,
+            //    Series = "XX"
+            //};
+
+            //foreign.AddVisa(new Visa() { Country = "USA", DateStart = new DateOnly(2024, 12, 5), Period = new TimeSpan(90, 0, 0, 0) });
+            //foreign.AddVisa(new Visa() { Country = "Germany", DateStart = new DateOnly(2024, 5, 15), Period = new TimeSpan(180, 0, 0, 0) });
+
+            //foreign.Info();
 
 
 
@@ -184,7 +249,7 @@ namespace P32_CSharp
             //DayOfWeek dd = DateTime.Now.DayOfWeek;
             //Console.WriteLine(dd);
 
-            
+
 
             //int[] arr = new int[] { 4, 2, 13, 45, 3, 7 };
             //String s = "mama";

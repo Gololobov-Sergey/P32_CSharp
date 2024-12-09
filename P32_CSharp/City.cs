@@ -15,36 +15,36 @@ namespace P32_CSharp
         readonly string[] districts;
 
 
-        private string? myVar;
+        //private string? myVar;
 
-        public string MyProperty
-        {
-            get 
-            {
-                if (myVar == null)
-                    return "No name";
-                return myVar; 
-            }
-            set 
-            {
-                if (value == null)
-                {
-                    return;
-                }
-                myVar = value; 
-            }
-        }
+        //public string MyProperty
+        //{
+        //    get 
+        //    {
+        //        if (myVar == null)
+        //            return "No name";
+        //        return myVar; 
+        //    }
+        //    set 
+        //    {
+        //        if (value == null)
+        //        {
+        //            return;
+        //        }
+        //        myVar = value; 
+        //    }
+        //}
 
-        private int age;
+        //private int age;
 
-        public int Age
-        {
-            get { return age; }
-            set { age = value; }
-        }
+        //public int Age
+        //{
+        //    get { return age; }
+        //    set { age = value; }
+        //}
 
 
-        public int MyProperty1 { get; set; }
+        //public int MyProperty1 { get; set; }
 
         public City(string name, string country, int population, string phoneCode, string[] districts)
         {
@@ -87,6 +87,12 @@ namespace P32_CSharp
         public string GetName()
         {
             return this.name;
+        }
+
+        public static City operator+(City city, int delta)
+        {
+            city.population += delta;
+            return city;
         }
     }
 }
