@@ -89,5 +89,28 @@ namespace P32_CSharp
             return (float)Math.Sqrt(p.X * p.X + p.Y * p.Y);
         }
 
+
+        public int this[string attr]
+        {
+            set 
+            {
+                if (attr == "X")
+                {
+                    X = value;
+                }
+                else if (attr == "Y")
+                {
+                    Y = value;
+                }
+            }
+            get 
+            { 
+                if(attr == "X")
+                    return X;
+                else if (attr == "Y")
+                    return Y;
+                return 0;
+            }
+        }
     }
 }

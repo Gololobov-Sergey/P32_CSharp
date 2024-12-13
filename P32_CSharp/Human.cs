@@ -22,14 +22,19 @@ namespace P32_CSharp
             Age = age;
         }
 
-        public void Info()
+        //public void Info()
+        //{
+        //    Console.WriteLine();
+        //}
+
+        public override string ToString()
         {
-            Console.WriteLine($"Id : {id}\nName : {Name}\nAge : {Age}");
+            return $"Id : {id}\nName : {Name}\nAge : {Age}";
         }
     }
 
 
-    public class Employee : Human
+    public /*sealed*/ abstract class Employee : Human
     {
         new int id;
         int salary;
@@ -39,10 +44,101 @@ namespace P32_CSharp
             this.salary = salary;
         }
 
-        public new void Info()
+        //public new virtual void Info()
+        //{
+        //    base.Info();
+        //    Console.WriteLine($"Salary : {salary}");
+        //}
+
+        public abstract void Proffesion();
+
+
+        public /*sealed*/ override string ToString()
         {
-            base.Info();
-            Console.WriteLine($"Salary : {salary}");
+            return base.ToString() + $"\nSalary : {salary}\"";
+        }
+
+    }
+
+
+    public class Enginer : Employee
+    {
+        int expirience;
+
+        public Enginer(int id, string name, int age, int salary, int expirience) : base(id, name, age, salary)
+        {
+            this.expirience = expirience;
+        }
+
+        public override void Proffesion()
+        {
+            Console.WriteLine("Enginer");
+        }
+
+        //public override void Info()
+        //{
+        //    base.Info();
+        //    Console.WriteLine($"Exp - {expirience}");
+        //}
+
+        public override string ToString()
+        {
+            return base.ToString() + $"\nExp - {expirience}";
         }
     }
+
+
+    public class Director : Employee
+    {
+        int personal;
+
+        public Director(int id, string name, int age, int salary, int personal) : base(id, name, age, salary)
+        {
+            this.personal = personal;
+        }
+
+        public override void Proffesion()
+        {
+            Console.WriteLine("Director");
+        }
+
+        //public override void Info()
+        //{
+        //    base.Info();
+        //    Console.WriteLine($"Personal - {personal}");
+        //}
+
+        public override string ToString()
+        {
+            return base.ToString() + $"\nPersonal - {personal}";
+        }
+    }
+
+
+    public class CleanigManager : Employee
+    {
+        int area;
+
+        public CleanigManager(int id, string name, int age, int salary, int area) : base(id, name, age, salary)
+        {
+            this.area = area;
+        }
+
+        public override void Proffesion()
+        {
+            Console.WriteLine("CleanigManager");
+        }
+
+        //public override void Info()
+        //{
+        //    base.Info();
+        //    Console.WriteLine($"Area - {area}");
+        //}
+
+        public override string ToString()
+        {
+            return base.ToString() + $"\nArea - {area}";
+        }
+    }
+
 }

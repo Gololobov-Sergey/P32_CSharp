@@ -14,6 +14,24 @@ namespace P32_CSharp
         readonly string phoneCode;
         readonly string[] districts;
 
+        public string this[int index]
+        {
+            get
+            {
+                if (index >= districts.Length)
+                {
+                    return "None";
+                }
+                return districts[index];
+            }
+
+            set
+            {
+                if (index >= districts.Length)
+                    return;
+                districts[index] = value;
+            }
+        }
 
         //private string? myVar;
 

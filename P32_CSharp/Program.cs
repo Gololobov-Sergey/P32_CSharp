@@ -51,6 +51,66 @@ namespace P32_CSharp
             Console.Title = "P32 C# - Слава Україні!";
             Console.Clear();
 
+            ////Employee dir = new Employee(2, "Petro", 30, 1000);
+
+            Employee dir = new Director(2, "Petro", 30, 1000, 10);
+            Employee eng = new Enginer(4, "Vasya", 20, 500, 5);
+            Employee cm = new CleanigManager(6, "Maria", 50, 100, 200);
+
+            Employee[] employees = { dir, eng, cm };
+            foreach (Employee item in employees)
+            {
+                item.Proffesion();
+                Console.WriteLine(item);
+                Console.WriteLine();
+                
+
+                //try
+                //{
+                //    ((Director)item).Info();
+                //}
+                //catch (Exception)
+                //{
+
+                //}
+
+
+                //Enginer e = item as Enginer;
+                //if (e != null)
+                //{
+                //    e.Info();
+                //}
+                
+
+                //if(item is CleanigManager)
+                //{
+                //    (item as CleanigManager)?.Info();
+                //}
+
+            }
+
+
+
+
+
+            Matrix m = new Matrix(4, 5);
+            m.SetMatrix(0, 50);
+            Console.WriteLine(m);
+
+            //Console.WriteLine(m[1,1]);
+
+
+
+            //Point point = new Point() { X = 8, Y = 4 };
+            //point["X"] = 555;
+            //point.Print();
+            //Console.WriteLine(point["Y"]);
+
+
+            //City city = new("Mykolaiv", "Ukraine", 30000000, "+380512", new string[] { "Ingulsky", "Tcentralny" });
+            //city[0] = "Korabelny";
+            //city.Info();
+
             /// 09.12.2024 ////////
             ///
 
@@ -60,15 +120,15 @@ namespace P32_CSharp
             //city += 100000;
             //city.Info();
 
-            Apple a1 = new Apple() { Color = Color.Red, Diametr = 10 };
-            Apple a2 = new Apple() { Color = Color.Green, Diametr = 15 };
-            Kompot k = a1 + a2;
-            k += "water  - 1 l";
-            k += "sugar  - 200 gr";
-            k += "korica - 20 gr";
-            k.Info();
-            k += new Apple() { Color = Color.Yellow, Diametr = 5 };
-            k.Info();
+            //Apple a1 = new Apple() { Color = Color.Red, Diametr = 10 };
+            //Apple a2 = new Apple() { Color = Color.Green, Diametr = 15 };
+            //Kompot k = a1 + a2;
+            //k += "water  - 1 l";
+            //k += "sugar  - 200 gr";
+            //k += "korica - 20 gr";
+            //k.Info();
+            //k += new Apple() { Color = Color.Yellow, Diametr = 5 };
+            //k.Info();
 
 
 
