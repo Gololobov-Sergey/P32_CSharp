@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace P32_CSharp
 {
-    public class Matrix
+
+    public interface IOutput
+    {
+        void Show();
+        void Show(string text);
+    }
+
+
+    public class Matrix : IOutput
     {
         int[,] arr;
 
@@ -60,6 +68,17 @@ namespace P32_CSharp
                 builder.AppendLine();
             }
             return builder.ToString();
+        }
+
+        public void Show()
+        {
+            Console.WriteLine(ToString());
+        }
+
+        public void Show(string text)
+        {
+            Console.WriteLine(text);
+            Console.WriteLine(ToString());
         }
 
         public int this[int r, int c]

@@ -61,13 +61,23 @@ namespace P32_CSharp
     }
 
 
-    public class Enginer : Employee
+    public class Enginer : Employee, IWorker
     {
         int expirience;
 
         public Enginer(int id, string name, int age, int salary, int expirience) : base(id, name, age, salary)
         {
             this.expirience = expirience;
+        }
+
+        public bool Work
+        {
+            get { return true; }
+        }
+
+        public string Proff()
+        {
+            return "I`m Enginer";
         }
 
         public override void Proffesion()
@@ -88,13 +98,23 @@ namespace P32_CSharp
     }
 
 
-    public class Director : Employee
+    public class Director : Employee, IWorker
     {
         int personal;
 
         public Director(int id, string name, int age, int salary, int personal) : base(id, name, age, salary)
         {
             this.personal = personal;
+        }
+
+        public bool Work
+        {
+            get { return false; }
+        }
+
+        public string Proff()
+        {
+            return "I`m Director";
         }
 
         public override void Proffesion()
@@ -115,13 +135,20 @@ namespace P32_CSharp
     }
 
 
-    public class CleanigManager : Employee
+    public class CleanigManager : Employee, IWorker
     {
         int area;
 
         public CleanigManager(int id, string name, int age, int salary, int area) : base(id, name, age, salary)
         {
             this.area = area;
+        }
+
+        public bool Work => true;
+
+        public string Proff()
+        {
+            return "I`m CleanigManager";
         }
 
         public override void Proffesion()

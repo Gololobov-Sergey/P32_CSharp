@@ -51,51 +51,73 @@ namespace P32_CSharp
             Console.Title = "P32 C# - Слава Україні!";
             Console.Clear();
 
+            Test t = new Test();
+            t.Show();
+            (t as IA1).Show();
+
+            IA1 a1 = new Test();
+            a1.Show();
+
+            IB1 b1 = new Test();
+            b1.Show();
+
+            IC1 c1 = new Test();
+            c1.Show();
+
+
+            /*IWorker dir = new Director(2, "Petro", 30, 1000, 10);
+            IWorker eng = new Enginer(4, "Vasya", 20, 500, 5);
+            IWorker cm = new CleanigManager(6, "Maria", 50, 100, 200);
+            IWorker[] employees = { dir, eng, cm };
+
+            foreach (IWorker item in employees)
+            {
+                Console.WriteLine(item.Proff());
+            }*/
+
             ////Employee dir = new Employee(2, "Petro", 30, 1000);
 
-            Employee dir = new Director(2, "Petro", 30, 1000, 10);
-            Employee eng = new Enginer(4, "Vasya", 20, 500, 5);
-            Employee cm = new CleanigManager(6, "Maria", 50, 100, 200);
+            //Employee dir = new Director(2, "Petro", 30, 1000, 10);
+            //Employee eng = new Enginer(4, "Vasya", 20, 500, 5);
+            //Employee cm = new CleanigManager(6, "Maria", 50, 100, 200);
 
-            Employee[] employees = { dir, eng, cm };
-            foreach (Employee item in employees)
-            {
-                item.Proffesion();
-                Console.WriteLine(item);
-                Console.WriteLine();
-                
-
-                //try
-                //{
-                //    ((Director)item).Info();
-                //}
-                //catch (Exception)
-                //{
-
-                //}
+            //Employee[] employees = { dir, eng, cm };
+            //foreach (Employee item in employees)
+            //{
+            //    item.Proffesion();
+            //    Console.WriteLine(item);
+            //    Console.WriteLine();
 
 
-                //Enginer e = item as Enginer;
-                //if (e != null)
-                //{
-                //    e.Info();
-                //}
-                
+            //    //try
+            //    //{
+            //    //    ((Director)item).Info();
+            //    //}
+            //    //catch (Exception)
+            //    //{
 
-                //if(item is CleanigManager)
-                //{
-                //    (item as CleanigManager)?.Info();
-                //}
-
-            }
+            //    //}
 
 
+            //    //Enginer e = item as Enginer;
+            //    //if (e != null)
+            //    //{
+            //    //    e.Info();
+            //    //}
+
+
+            //    //if(item is CleanigManager)
+            //    //{
+            //    //    (item as CleanigManager)?.Info();
+            //    //}
+
+            //}
 
 
 
-            Matrix m = new Matrix(4, 5);
-            m.SetMatrix(0, 50);
-            Console.WriteLine(m);
+            //Matrix m = new Matrix(4, 5);
+            //m.SetMatrix(0, 50);
+            //Console.WriteLine(m);
 
             //Console.WriteLine(m[1,1]);
 
