@@ -51,18 +51,70 @@ namespace P32_CSharp
             Console.Title = "P32 C# - Слава Україні!";
             Console.Clear();
 
-            Test t = new Test();
-            t.Show();
-            (t as IA1).Show();
 
-            IA1 a1 = new Test();
-            a1.Show();
+            /// 20.12.2024 ////////
+            /// 
 
-            IB1 b1 = new Test();
-            b1.Show();
 
-            IC1 c1 = new Test();
-            c1.Show();
+            //Group group = new Group();
+
+            //foreach (Student student in group)
+            //{
+            //    Console.WriteLine(student);
+            //}
+
+            ////group.Sort();
+
+            ////group.Sort(new DateComparer());
+            ////group.Sort(Student.FromBirthDay);
+            
+            ////group.Sort(new StudentCardComparer());
+            //group.Sort(Student.FromStudentCard);
+
+
+
+            //Console.WriteLine();
+            //foreach (Student student in group)
+            //{
+            //    Console.WriteLine(student);
+            //}
+
+
+            Student st1 = new Student
+            {
+                LastName = "Petroff",
+                FirstName = "Oleg",
+                BirthDay = new DateTime(2000, 5, 15),
+                StudentCard = new StudentCard
+                {
+                    Series = "AB",
+                    Number = 123456
+                }
+            };
+
+            Student st2 = (Student)st1.Clone();
+
+            st2.FirstName = "xxxxxxx";
+
+            st2.StudentCard.Series = "XX";
+            Console.WriteLine(st2);
+            Console.WriteLine(st1);
+
+
+
+
+            //Test t = new Test();
+            //t.Show();
+            //(t as IA1).Show();
+
+            //IA1 a1 = new Test();
+            //a1.Show();
+
+            //IB1 b1 = new Test();
+            //b1.Show();
+
+            //IC1 c1 = new Test();
+            //c1.Show();
 
 
             /*IWorker dir = new Director(2, "Petro", 30, 1000, 10);
