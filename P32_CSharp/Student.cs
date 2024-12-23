@@ -29,6 +29,7 @@ namespace P32_CSharp
         }
     }
 
+    
 
     public class Student : IComparable, ICloneable
     {

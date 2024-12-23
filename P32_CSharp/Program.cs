@@ -1,4 +1,5 @@
 ﻿using System.Collections.Concurrent;
+using System.Collections.Specialized;
 using System.Drawing;
 using System.Text;
 
@@ -42,6 +43,39 @@ namespace P32_CSharp
             return s;
         }
 
+        public delegate void VoidDelegate();
+
+
+        public static void VoidFunc()
+        {
+            Console.WriteLine("Void Fanc no params");
+        }
+
+
+        public delegate void ConsolePrint(string message);
+
+        public delegate bool Method(int elem);
+
+        public static int CountValue(int[] arr, Method method)
+        {
+            int count = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (method(arr[i]))
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        public static bool IsNegative(int a)
+        {
+            return a > 0;
+        }
+
+        public delegate bool VerifyDay(DateOnly d);
+
         static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -51,6 +85,81 @@ namespace P32_CSharp
             Console.Title = "P32 C# - Слава Україні!";
             Console.Clear();
 
+            /// 23.12.2024 ////////
+            /// 
+
+
+            //int[] arr = { 1, 23, 43, 5, 7, 8, 1, -56, 1 };
+            //Console.WriteLine(CountValue(arr, (e) => e == 1));
+            //Console.WriteLine(CountValue(arr, (e) => e < 8));
+            //Console.WriteLine(CountValue(arr, (e) => e > 20 && e < 50));
+            //Console.WriteLine(CountValue(arr, (e) => e % 2 == 0));
+            //Console.WriteLine(CountValue(arr, (e) => e > 0));
+            //Console.WriteLine(CountValue(arr, IsNegative));
+
+
+            VerifyDay pd = (DateOnly d) =>  d.DayOfYear == 256;
+            pd += (DateOnly d) => d.DayOfWeek == DayOfWeek.Monday;
+            Console.WriteLine(pd(new DateOnly(2024, 9, 15)));
+            Console.WriteLine(pd(new DateOnly(2024, 12, 23)));
+
+            Color color;
+            
+
+            //ConsolePrint cp = (string message) => Console.WriteLine(message);
+
+            //cp("Hello");
+
+
+            //VoidDelegate vd = VoidFunc;
+            //vd();
+
+            //Calc calc = new Calc();
+            //CalcDelegate? calcDelegate = null;
+
+            //int a = Convert.ToInt32(Console.ReadLine());
+            //int b = Convert.ToInt32(Console.ReadLine());
+            //char c = Convert.ToChar(Console.ReadLine());
+
+            //switch(c)
+            //{
+            //    case '+': calcDelegate = new CalcDelegate(calc.Add); break;
+            //    case '-': calcDelegate = calc.Diff; break;
+            //    case '*': calcDelegate = Calc.Mult; break;
+            //    case '/': calcDelegate = calc.Div; break;
+            //}
+
+            //calcDelegate = new CalcDelegate(calc.Add);
+            //calcDelegate += calc.Diff;
+            //calcDelegate += Calc.Mult;
+            //calcDelegate += calc.Div;
+
+            //if (calcDelegate != null)
+            //    Console.WriteLine(calcDelegate(a,b));
+
+            //Delegate[] d = calcDelegate.GetInvocationList();
+            //Console.WriteLine((calcDelegate.GetInvocationList()[1] as CalcDelegate)(a, b));
+
+
+            //foreach (CalcDelegate item in calcDelegate.GetInvocationList())
+            //{
+            //    Console.WriteLine(item(a, b));
+            //}
+
+
+            //calcDelegate -= Calc.Mult;
+            //calcDelegate -= Calc.Mult;
+
+
+            //foreach (CalcDelegate item in calcDelegate.GetInvocationList())
+            //{
+            //    Console.WriteLine(item(a, b));
+            //}
+
+            //calcDelegate += delegate (int a, int b) { Console.WriteLine($"{a} +=+ {b}"); return a + b; };
+            //Console.WriteLine(calcDelegate(5,6));
+
+            //calcDelegate += (int a, int b) => { return a + b; };
 
             /// 20.12.2024 ////////
             /// 
@@ -67,7 +176,7 @@ namespace P32_CSharp
 
             ////group.Sort(new DateComparer());
             ////group.Sort(Student.FromBirthDay);
-            
+
             ////group.Sort(new StudentCardComparer());
             //group.Sort(Student.FromStudentCard);
 
@@ -80,25 +189,25 @@ namespace P32_CSharp
             //}
 
 
-            Student st1 = new Student
-            {
-                LastName = "Petroff",
-                FirstName = "Oleg",
-                BirthDay = new DateTime(2000, 5, 15),
-                StudentCard = new StudentCard
-                {
-                    Series = "AB",
-                    Number = 123456
-                }
-            };
+            //Student st1 = new Student
+            //{
+            //    LastName = "Petroff",
+            //    FirstName = "Oleg",
+            //    BirthDay = new DateTime(2000, 5, 15),
+            //    StudentCard = new StudentCard
+            //    {
+            //        Series = "AB",
+            //        Number = 123456
+            //    }
+            //};
 
-            Student st2 = (Student)st1.Clone();
+            //Student st2 = (Student)st1.Clone();
 
-            st2.FirstName = "xxxxxxx";
+            //st2.FirstName = "xxxxxxx";
 
-            st2.StudentCard.Series = "XX";
-            Console.WriteLine(st2);
-            Console.WriteLine(st1);
+            //st2.StudentCard.Series = "XX";
+            //Console.WriteLine(st2);
+            //Console.WriteLine(st1);
 
 
 
