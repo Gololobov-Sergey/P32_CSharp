@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace P32_CSharp
 {
@@ -67,6 +68,21 @@ namespace P32_CSharp
             };
             return temp;
         }
+
+        //#2
+        public void ExamInfo(object sender, ExamEventArgs task)
+        {
+            Console.WriteLine($"Екзамен для {LastName} {FirstName}, по предмету {task.Subject} назначений на {task.Date.ToShortDateString()}\n" +
+                $"Максимальна кількіть балів - {task.MaxGrade}\n" +
+                $"Екзамен назначив - {(sender as Teacher).Name}");
+        }
+
+
+        //#1
+        //public void ExamInfo(DateOnly date)
+        //{
+        //    Console.WriteLine($"Екзамен для {LastName} {FirstName} назначений на {date.ToShortDateString()}");
+        //}
     }
 
 
@@ -164,4 +180,60 @@ namespace P32_CSharp
             throw new NotImplementedException();
         }
     }
+
+    public delegate void ExamDelegate(DateOnly date);
+
+    public class Teacher
+    {
+        SortedList<string, EventHandler<ExamEventArgs>> list = new();
+
+        public string Name { get; set; }
+        //#2
+        public event EventHandler<ExamEventArgs> ExamEvent
+        {
+            add 
+            {
+                Student st = value.Target as Student;
+                list.Add(st.LastName + st.FirstName, value);
+            }
+            remove 
+            {
+                Student st = value.Target as Student;
+                list.Remove(st.LastName + st.FirstName);
+            }
+        }
+
+        public void SetExam(ExamEventArgs task)
+        {
+            if (list != null)
+            {
+                foreach (string item in list.Keys)
+                {
+                    list[item](this, task);
+                }
+            }
+        }
+
+
+        // #1
+        //public event ExamDelegate ExamEvent;
+
+        //public void SetExam(DateOnly date)
+        //{
+        //    if( ExamEvent != null )
+        //    {
+        //        ExamEvent(date);
+        //    }
+        //}
+    }
+
+    public class ExamEventArgs : EventArgs
+    {
+        public DateOnly Date { get; set; }
+        public string Subject { get; set; }
+        public int MaxGrade { get; set; }
+
+
+    }
+    
 }

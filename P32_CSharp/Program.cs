@@ -85,8 +85,90 @@ namespace P32_CSharp
             Console.Title = "P32 C# - Слава Україні!";
             Console.Clear();
 
+
+            /// 25.12.2024 ////////
+            /// 
+
+            //List<Student> group = new List<Student>
+            //{
+            //    new Student
+            //    {
+            //        LastName = "Petroff",
+            //        FirstName = "Oleg",
+            //        BirthDay = new DateTime(2000, 5, 15),
+            //        StudentCard = new StudentCard
+            //        {
+            //            Series = "AB",
+            //            Number = 123456
+            //        }
+            //    },
+            //    new Student
+            //    {
+            //        LastName = "Naumova",
+            //        FirstName = "Olga",
+            //        BirthDay = new DateTime(1999, 1, 20),
+            //        StudentCard = new StudentCard
+            //        {
+            //            Series = "AB",
+            //            Number = 123454
+            //        }
+            //    },
+            //    new Student
+            //    {
+            //        LastName = "Kuznetcov",
+            //        FirstName = "Dmytro",
+            //        BirthDay = new DateTime(2001, 10, 20),
+            //        StudentCard = new StudentCard
+            //        {
+            //            Series = "AA",
+            //            Number = 123456
+            //        }
+            //    },
+            //    new Student
+            //    {
+            //        LastName = "Frolova",
+            //        FirstName = "Kateryna",
+            //        BirthDay = new DateTime(2000, 3, 10),
+            //        StudentCard = new StudentCard
+            //        {
+            //            Series = "AA",
+            //            Number = 123452
+            //        }
+            //    }
+            //};
+
+            //Teacher teacher = new Teacher() { Name = "Gololobov S.A." };
+
+            //foreach (Student item in group)
+            //{
+            //    teacher.ExamEvent += item.ExamInfo;
+            //}
+
+
+            //teacher.SetExam(new ExamEventArgs { Subject = "C#", Date = new DateOnly(2024, 12, 25), MaxGrade = 12 });
+            //Console.WriteLine();
+
+            //teacher.ExamEvent -= group[2].ExamInfo;
+
+            ////teacher.ExamEvent += Teacher_ExamEvent;
+
+            //teacher.SetExam(new ExamEventArgs { Subject = "C#", Date = new DateOnly(2025, 1, 1), MaxGrade = 10 });
+
+
+
+
+
+
+            Card card = new Card { Name = "Serg", PIN = "1111" };
+            card.AddMoneyEvent += ShowInfoFromConsole;
+            card.AddMoneyEvent += ShowInfoFromEmail;
+            card.AddMoney(1000);
+
             /// 23.12.2024 ////////
             /// 
+
+
+
 
 
             //int[] arr = { 1, 23, 43, 5, 7, 8, 1, -56, 1 };
@@ -98,13 +180,13 @@ namespace P32_CSharp
             //Console.WriteLine(CountValue(arr, IsNegative));
 
 
-            VerifyDay pd = (DateOnly d) =>  d.DayOfYear == 256;
-            pd += (DateOnly d) => d.DayOfWeek == DayOfWeek.Monday;
-            Console.WriteLine(pd(new DateOnly(2024, 9, 15)));
-            Console.WriteLine(pd(new DateOnly(2024, 12, 23)));
+            //VerifyDay pd = (DateOnly d) =>  d.DayOfYear == 256;
+            //pd += (DateOnly d) => d.DayOfWeek == DayOfWeek.Monday;
+            //Console.WriteLine(pd(new DateOnly(2024, 9, 15)));
+            //Console.WriteLine(pd(new DateOnly(2024, 12, 23)));
 
-            Color color;
-            
+            //Color color;
+
 
             //ConsolePrint cp = (string message) => Console.WriteLine(message);
 
@@ -703,6 +785,23 @@ namespace P32_CSharp
 
             Console.Write("> ");
             Console.Read();
+        }
+
+        private static void ShowInfoFromEmail(string message)
+        {
+            Console.WriteLine("На Email прийшло повідомлення:");
+            Console.WriteLine(message);
+        }
+
+        private static void ShowInfoFromConsole(string message)
+        {
+            Console.WriteLine("В консоль прийшло повідомлення:");
+            Console.WriteLine(message);
+        }
+
+        private static void Teacher_ExamEvent(object? sender, ExamEventArgs e)
+        {
+            Console.WriteLine("Просто метод події");
         }
     }
 }
