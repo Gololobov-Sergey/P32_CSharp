@@ -1,4 +1,5 @@
-﻿using System.Collections.Concurrent;
+﻿using System.Collections;
+using System.Collections.Concurrent;
 using System.Collections.Specialized;
 using System.Drawing;
 using System.Text;
@@ -76,6 +77,36 @@ namespace P32_CSharp
 
         public delegate bool VerifyDay(DateOnly d);
 
+
+        public static void PrintGroup(Hashtable students)
+        {
+            foreach (var st in students.Keys)
+            {
+                Console.Write($"{st} - ");
+                ArrayList v = (ArrayList)students[st]!;
+                foreach (int item in v)
+                {
+                    Console.Write($"{item} ");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        public static void AddMark(Hashtable students, string fullName, int mark)
+        {
+            foreach (Student st in students.Keys)
+            {
+                if(fullName == st.LastName + " " + st.FirstName)
+                {
+                    ArrayList marks = (ArrayList)students[st]!;
+                    marks.Add(mark);
+                    Console.WriteLine("Mark added");
+                    return;
+                }
+            }
+            Console.WriteLine("Student not found");
+        }
+
         static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -84,6 +115,85 @@ namespace P32_CSharp
             Console.InputEncoding = Encoding.UTF8;
             Console.Title = "P32 C# - Слава Україні!";
             Console.Clear();
+
+
+            /// 10.01.2025 ////////
+            /// 
+
+
+            Hashtable students = new Hashtable
+            {
+                {
+                    new Student
+                    {
+                        LastName = "Petroff",
+                        FirstName = "Oleg",
+                        BirthDay = new DateTime(2000, 5, 15),
+                        StudentCard = new StudentCard
+                        {
+                            Series = "AB",
+                            Number = 123456
+                        }
+                    }, new ArrayList{7,8,9}
+                },
+
+                {
+                    new Student
+                    {
+                        LastName = "Naumova",
+                        FirstName = "Olga",
+                        BirthDay = new DateTime(1999, 1, 20),
+                        StudentCard = new StudentCard
+                        {
+                            Series = "AB",
+                            Number = 123454
+                        }
+                    }, new ArrayList {6,8,10}
+                },
+
+                {
+                    new Student
+                    {
+                        LastName = "Kuznetcov",
+                        FirstName = "Dmytro",
+                        BirthDay = new DateTime(2001, 10, 20),
+                        StudentCard = new StudentCard
+                        {
+                            Series = "AA",
+                            Number = 123456
+                        }
+                    }, new ArrayList{10,11,11}
+                }
+            };
+
+            PrintGroup(students);
+            AddMark(students, "Kuznetcov Dmytro", 12);
+            PrintGroup(students);
+
+
+            //ArrayList al = [1, "one", DateTime.Now];
+            //al.AddRange(new int[] { 1, 2, 3 });
+            //Console.WriteLine(al.Capacity);
+            //Console.WriteLine(al.Count);
+
+            //foreach (var item in al)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+
+            //Hashtable t = new Hashtable();
+            //t.Add(1, "one");
+            //t.Add("two", 2);
+            //t[3] = "tree";
+
+            //Console.WriteLine(t[4]);
+
+            //foreach (object s in t.Keys)
+            //{
+            //    Console.WriteLine($"{s} - {t[s]}");
+            //}
+
 
 
             /// 25.12.2024 ////////
@@ -156,18 +266,13 @@ namespace P32_CSharp
 
 
 
-
-
-
-            Card card = new Card { Name = "Serg", PIN = "1111" };
-            card.AddMoneyEvent += ShowInfoFromConsole;
-            card.AddMoneyEvent += ShowInfoFromEmail;
-            card.AddMoney(1000);
+            //Card card = new Card { Name = "Serg", PIN = "1111" };
+            //card.AddMoneyEvent += ShowInfoFromConsole;
+            //card.AddMoneyEvent += ShowInfoFromEmail;
+            //card.AddMoney(1000);
 
             /// 23.12.2024 ////////
             /// 
-
-
 
 
 
