@@ -56,6 +56,10 @@ namespace P32_CSharp
         public delegate void ConsolePrint(string message);
 
         public delegate bool Method(int elem);
+        public delegate int Method2(int elem);
+        public delegate DateTime Method3(int elem);
+
+        public delegate T Method4<out T, in T1>(T1 elem);
 
         public static int CountValue(int[] arr, Method method)
         {
@@ -76,6 +80,9 @@ namespace P32_CSharp
         }
 
         public delegate bool VerifyDay(DateOnly d);
+
+        public delegate bool BoolDelegeate<in T>(T a);
+        public delegate bool BoolDelegeate<in T1, in T2>(T1 a, T2 b);
 
 
         public static void PrintGroup(Hashtable students)
@@ -107,6 +114,37 @@ namespace P32_CSharp
             Console.WriteLine("Student not found");
         }
 
+
+        static public T MaxElem<T>(T[] arr) where T : IComparable<T>
+        {
+            T max = arr[0];
+            foreach (T item in arr)
+            {
+                if (item.CompareTo(max) > 0)
+                {
+                    max = item;
+                }
+            }
+            return max;
+        }
+
+        static public void Swap<T>(ref T a, ref T b)
+        {
+            (a, b) = (b, a);
+            //T temp = a;
+            //a = b;
+            //b = temp;
+        }
+
+        static T FindMedian<T>(ICollection<T> collections) where T : IComparable<T>
+        {
+            List<T> list = collections.ToList();
+            list.Sort();
+            if(list.Count != 0)
+                return list[list.Count / 2];
+            throw new Exception();
+        }
+
         static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -117,58 +155,89 @@ namespace P32_CSharp
             Console.Clear();
 
 
+            /// 20.01.2025 ////////
+            /// 
+
+            BoolDelegeate<int> method;
+            BoolDelegeate<DateOnly> verifyDay;
+            Action<int> action;
+            Action<DateOnly> action2;
+
+
+            //int x = 10, y = 20;
+            //Console.WriteLine($"Before Swap: x = {x}, y = {y}");
+            //Swap(ref x, ref y);
+            //Console.WriteLine($"After Swap: x = {x}, y = {y}");
+
+            //int[] arr = { 2, 8, 5, 2, 4, 8 };
+            //List<string> list = new List<string>
+            //{
+            //    "mama", "papa", "aaaa", "aa", "baba"
+            //};
+            //Console.WriteLine(FindMedian(arr));
+            //Console.WriteLine(FindMedian(list));
+
+            //Point2D<Enginer> p = new Point2D<Enginer>();
+
+
+            //Group2 g = new Group2();
+            //foreach (Student item in g)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
             /// 10.01.2025 ////////
             /// 
 
 
-            Hashtable students = new Hashtable
-            {
-                {
-                    new Student
-                    {
-                        LastName = "Petroff",
-                        FirstName = "Oleg",
-                        BirthDay = new DateTime(2000, 5, 15),
-                        StudentCard = new StudentCard
-                        {
-                            Series = "AB",
-                            Number = 123456
-                        }
-                    }, new ArrayList{7,8,9}
-                },
+            //Hashtable students = new Hashtable
+            //{
+            //    {
+            //        new Student
+            //        {
+            //            LastName = "Petroff",
+            //            FirstName = "Oleg",
+            //            BirthDay = new DateTime(2000, 5, 15),
+            //            StudentCard = new StudentCard
+            //            {
+            //                Series = "AB",
+            //                Number = 123456
+            //            }
+            //        }, new ArrayList{7,8,9}
+            //    },
 
-                {
-                    new Student
-                    {
-                        LastName = "Naumova",
-                        FirstName = "Olga",
-                        BirthDay = new DateTime(1999, 1, 20),
-                        StudentCard = new StudentCard
-                        {
-                            Series = "AB",
-                            Number = 123454
-                        }
-                    }, new ArrayList {6,8,10}
-                },
+            //    {
+            //        new Student
+            //        {
+            //            LastName = "Naumova",
+            //            FirstName = "Olga",
+            //            BirthDay = new DateTime(1999, 1, 20),
+            //            StudentCard = new StudentCard
+            //            {
+            //                Series = "AB",
+            //                Number = 123454
+            //            }
+            //        }, new ArrayList {6,8,10}
+            //    },
 
-                {
-                    new Student
-                    {
-                        LastName = "Kuznetcov",
-                        FirstName = "Dmytro",
-                        BirthDay = new DateTime(2001, 10, 20),
-                        StudentCard = new StudentCard
-                        {
-                            Series = "AA",
-                            Number = 123456
-                        }
-                    }, new ArrayList{10,11,11}
-                }
-            };
+            //    {
+            //        new Student
+            //        {
+            //            LastName = "Kuznetcov",
+            //            FirstName = "Dmytro",
+            //            BirthDay = new DateTime(2001, 10, 20),
+            //            StudentCard = new StudentCard
+            //            {
+            //                Series = "AA",
+            //                Number = 123456
+            //            }
+            //        }, new ArrayList{10,11,11}
+            //    }
+            //};
 
-            PrintGroup(students);
-            AddMark(students, "Kuznetcov Dmytro", 12);
-            PrintGroup(students);
+            //PrintGroup(students);
+            //AddMark(students, "Kuznetcov Dmytro", 12);
+            //PrintGroup(students);
 
 
             //ArrayList al = [1, "one", DateTime.Now];
@@ -199,53 +268,65 @@ namespace P32_CSharp
             /// 25.12.2024 ////////
             /// 
 
-            //List<Student> group = new List<Student>
-            //{
-            //    new Student
-            //    {
-            //        LastName = "Petroff",
-            //        FirstName = "Oleg",
-            //        BirthDay = new DateTime(2000, 5, 15),
-            //        StudentCard = new StudentCard
-            //        {
-            //            Series = "AB",
-            //            Number = 123456
-            //        }
-            //    },
-            //    new Student
-            //    {
-            //        LastName = "Naumova",
-            //        FirstName = "Olga",
-            //        BirthDay = new DateTime(1999, 1, 20),
-            //        StudentCard = new StudentCard
-            //        {
-            //            Series = "AB",
-            //            Number = 123454
-            //        }
-            //    },
-            //    new Student
-            //    {
-            //        LastName = "Kuznetcov",
-            //        FirstName = "Dmytro",
-            //        BirthDay = new DateTime(2001, 10, 20),
-            //        StudentCard = new StudentCard
-            //        {
-            //            Series = "AA",
-            //            Number = 123456
-            //        }
-            //    },
-            //    new Student
-            //    {
-            //        LastName = "Frolova",
-            //        FirstName = "Kateryna",
-            //        BirthDay = new DateTime(2000, 3, 10),
-            //        StudentCard = new StudentCard
-            //        {
-            //            Series = "AA",
-            //            Number = 123452
-            //        }
-            //    }
-            //};
+            List<Student> group = new List<Student>
+            {
+                new Student
+                {
+                    LastName = "Petroff",
+                    FirstName = "Oleg",
+                    BirthDay = new DateTime(2000, 5, 15),
+                    StudentCard = new StudentCard
+                    {
+                        Series = "AB",
+                        Number = 123456
+                    }
+                },
+                new Student
+                {
+                    LastName = "Naumova",
+                    FirstName = "Olga",
+                    BirthDay = new DateTime(1999, 1, 20),
+                    StudentCard = new StudentCard
+                    {
+                        Series = "AB",
+                        Number = 123454
+                    }
+                },
+                new Student
+                {
+                    LastName = "Kuznetcov",
+                    FirstName = "Dmytro",
+                    BirthDay = new DateTime(2001, 10, 20),
+                    StudentCard = new StudentCard
+                    {
+                        Series = "AA",
+                        Number = 123456
+                    }
+                },
+                new Student
+                {
+                    LastName = "Frolova",
+                    FirstName = "Kateryna",
+                    BirthDay = new DateTime(2000, 3, 10),
+                    StudentCard = new StudentCard
+                    {
+                        Series = "AA",
+                        Number = 123452
+                    }
+                }
+            };
+
+            group.ForEach(s => Console.WriteLine(s.FirstName + " " + s.LastName));
+
+            //Console.WriteLine(group.Average(s=> s.FirstName.Length+s.LastName.Length));
+
+           // Console.WriteLine(group.Find(s => s.LastName[0] == 'F'));
+            
+            group.
+                FindAll(s => s.LastName![0] == 'F' || s.LastName[0] == 'N').
+                ForEach(s=> Console.WriteLine(s));
+
+            
 
             //Teacher teacher = new Teacher() { Name = "Gololobov S.A." };
 
