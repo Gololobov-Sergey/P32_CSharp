@@ -145,6 +145,22 @@ namespace P32_CSharp
             throw new Exception();
         }
 
+        static void Div()
+        {
+            try
+            {
+                int a = Convert.ToInt32(Console.ReadLine());
+                int b = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine(a / b);
+            }
+            catch (DivideByZeroException ex)
+            {
+                throw new ErrorException(nameof(ex), ex);
+            }
+        }
+
+
         static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -155,13 +171,96 @@ namespace P32_CSharp
             Console.Clear();
 
 
+            /// 24.01.2025 ////////
+            /// 
+
+
+            int[] arr = { 1, 34, 6, 89, 18, 6, 43, 3, 62, 4 };
+
+            //IEnumerable<int> query = from i in arr
+            //                         where i % 2 == 0
+            //                         orderby i descending
+            //                         select i;
+
+
+
+            //foreach(int i in query)
+            //{
+            //    Console.Write(i + " ");
+            //}
+            //Console.WriteLine();
+
+            //arr[2] = 999;
+
+            //foreach (int i in query)
+            //{
+            //    Console.Write(i + " ");
+            //}
+            //Console.WriteLine();
+
+            //IEnumerable<IGrouping<int, int>> query = from i in arr
+            //                                         group i by i % 10;
+
+            //foreach(IGrouping<int, int> key in query)
+            //{
+            //    Console.Write(key.Key + " : ");
+            //    foreach (int item in key)
+            //    {
+            //        Console.Write(item + " ");
+            //    }
+            //    Console.WriteLine();
+            //}
+
+
+            //int[] arr = { 1, 2, 3, 45, 5 };
+            //arr.Print();
+
+
+            //string s = "mama";
+            //Console.Write(s.PadCenter(15));
+            //Console.WriteLine("lsdhkfi");
+
+            //Console.WriteLine(GC.MaxGeneration);
+            //Garbage garbage = new Garbage();
+            //Console.WriteLine(GC.GetGeneration(garbage));
+            //Console.WriteLine(GC.GetTotalMemory(false));
+            //garbage.MakeGarbage();
+            //Console.WriteLine(GC.GetTotalMemory(false));
+            ////GC.Collect(0);
+            //Console.WriteLine(GC.GetGeneration(garbage));
+            //Console.WriteLine(GC.GetTotalMemory(false));
+            //GC.Collect();
+            //Console.WriteLine(GC.GetGeneration(garbage));
+            //Console.WriteLine(GC.GetTotalMemory(false));
+
+
+            //try
+            //{
+            //    Div();
+            //}
+            //catch (Exception ex) when (ex.InnerException != null)
+            //{
+
+            //    Console.WriteLine(ex.HResult);
+            //    Console.WriteLine(ex.HelpLink);
+            //    Console.WriteLine(ex.Message);
+            //    Console.WriteLine(ex.Source);
+            //    Console.WriteLine(ex.StackTrace);
+            //    Console.WriteLine(ex.Data);
+            //    Console.WriteLine(ex.InnerException);
+            //}
+            //finally
+            //{
+            //    Console.WriteLine("The end");
+            //}
+
             /// 20.01.2025 ////////
             /// 
 
-            BoolDelegeate<int> method;
-            BoolDelegeate<DateOnly> verifyDay;
-            Action<int> action;
-            Action<DateOnly> action2;
+            //BoolDelegeate<int> method;
+            //BoolDelegeate<DateOnly> verifyDay;
+            //Action<int> action;
+            //Action<DateOnly> action2;
 
 
             //int x = 10, y = 20;
@@ -316,17 +415,28 @@ namespace P32_CSharp
                 }
             };
 
-            group.ForEach(s => Console.WriteLine(s.FirstName + " " + s.LastName));
+
+            var st = from s in @group
+                     where s.BirthDay.Month >=3 && s.BirthDay.Month <= 5
+                     orderby s.BirthDay.Month
+                     select s;
+
+            foreach (var s in st)
+            {
+                Console.WriteLine(s);
+            }
+
+            //group.ForEach(s => Console.WriteLine(s.FirstName + " " + s.LastName));
 
             //Console.WriteLine(group.Average(s=> s.FirstName.Length+s.LastName.Length));
 
-           // Console.WriteLine(group.Find(s => s.LastName[0] == 'F'));
-            
-            group.
-                FindAll(s => s.LastName![0] == 'F' || s.LastName[0] == 'N').
-                ForEach(s=> Console.WriteLine(s));
+            // Console.WriteLine(group.Find(s => s.LastName[0] == 'F'));
 
-            
+            //group.
+            //    FindAll(s => s.LastName![0] == 'F' || s.LastName[0] == 'N').
+            //    ForEach(s=> Console.WriteLine(s));
+
+
 
             //Teacher teacher = new Teacher() { Name = "Gololobov S.A." };
 
@@ -725,7 +835,7 @@ namespace P32_CSharp
             /// 25.11.2024 ////////
             /// 
 
-            string st = Console.ReadLine();
+            //string st = Console.ReadLine();
 
             //string[] words = st.Split(' ');
             //for (int i = 0; i < words.Length; i++)
