@@ -2,6 +2,7 @@
 using System.Collections.Concurrent;
 using System.Collections.Specialized;
 using System.Drawing;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -171,6 +172,34 @@ namespace P32_CSharp
             Console.Title = "P32 C# - Слава Україні!";
             Console.Clear();
 
+
+            /// 31.01.2025 ////////
+            /// 
+
+            List<int> l = [];
+
+            //foreach (var item in typeof(Student).GetCustomAttributes())
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            foreach (var item in typeof(Student).GetMembers())
+            {
+                
+                foreach (var attr in item.GetCustomAttributes())
+                {
+                    if (attr is ProgrammerAttribute)
+                    {
+                        ProgrammerAttribute pa = attr as ProgrammerAttribute;
+                        if(pa.name == "Vasya")
+                        {
+                            Console.Write(item.Name + " - ");
+                            Console.WriteLine(attr);
+                        }
+                    }
+                    
+                }
+            }
 
             /// 27.01.2025 ////////
             /// 

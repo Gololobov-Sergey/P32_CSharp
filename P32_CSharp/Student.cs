@@ -30,8 +30,8 @@ namespace P32_CSharp
         }
     }
 
-    
 
+    [Programmer]
     public class Student : IComparable<Student>, ICloneable
     {
         public string? FirstName { get; set; }
@@ -43,6 +43,7 @@ namespace P32_CSharp
         public static IComparer FromStudentCard => new StudentCardComparer();
         public static IComparer<Student> FromBirthDay => new DateComparer();
 
+        [Programmer("Vasya", "2023-10-15")]
         public int CompareTo(Student? st)
         {
             //if (obj is Student)
@@ -53,11 +54,13 @@ namespace P32_CSharp
             //throw new NotImplementedException();
         }
 
+        [Programmer("Vasya", "2023-10-18")]
         public override string ToString()
         {
             return $"{LastName!.PadRight(15)} {FirstName!.PadRight(10)} {BirthDay.ToShortDateString()} {StudentCard}";
         }
 
+        [Programmer]
         public object Clone()
         {
             Student temp = (Student)this.MemberwiseClone();
@@ -70,6 +73,7 @@ namespace P32_CSharp
         }
 
         //#2
+        [Programmer("Jonh", "2022-05-06")]
         public void ExamInfo(object sender, ExamEventArgs task)
         {
             Console.WriteLine($"Екзамен для {LastName} {FirstName}, по предмету {task.Subject} назначений на {task.Date.ToShortDateString()}\n" +
